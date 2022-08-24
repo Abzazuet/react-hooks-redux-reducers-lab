@@ -9,8 +9,9 @@ export function manageFriends(state = initialState, action) {
         hometown: action.payload.hometown,
         id: action.payload.id
       }
-      state.friends.push(newFriend)
-      return {friends: state.friends};
+      let newFriendArray = [...state.friends]
+      newFriendArray.push(newFriend)
+      return {friends: newFriendArray};
     case "friends/remove":
       return {friends: state.friends.filter(friend => friend.id !== action.payload)};
     default:
